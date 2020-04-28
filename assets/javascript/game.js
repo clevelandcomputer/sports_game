@@ -1,0 +1,63 @@
+// Clicking either "SHOOT" button represents a shot for that team.
+// Shots should have a random chance of succeeding or failing. (Sounds like Internet research time! How do you determine a random chance in JavaScript?)
+// The number of shots taken should increase for every click of the "SHOOT" button.
+// The number of goals should only increase when the shot is successful.
+// Clicking the "RESET" button should reset all the shot and goal counters and add 1 to the number of resets.
+// Bonus
+// Play a sound when someone clicks the "Shoot" button. You'll need to read about the <audio> element and how to use it in JS. You will also need to find a sound file to use.
+// Use what you know about HTML and CSS to make the page look better!
+// Upon reset, display who won the game.
+let count = 0;
+const teamone_numshots = document.querySelector("#teamone-numshots")
+const teamone_shoot_button = document.querySelector("#teamone-shoot-button");
+
+let goals = 0;
+const teamone_numgoals = document.querySelector("#teamone-numgoals")
+ 
+teamone_shoot_button.addEventListener("click", function(){
+        count = parseInt(teamone_numshots.innerHTML) + 1;
+        teamone_numshots.innerHTML = count;
+        const rand = Math.random();
+        if (rand < 0.5){
+            goals = parseInt(teamone_numgoals.innerHTML) + 1;
+            teamone_numgoals.innerHTML = goals;
+            console.log("Team One Successful")
+        } else {
+            console.log("Team One Not Successful")
+        }
+
+})
+
+let count2 = 0;
+const teamtwo_numshots = document.querySelector("#teamtwo-numshots")
+const teamtwo_shoot_button = document.querySelector("#teamtwo-shoot-button");
+let goals2 = 0;
+const teamtwo_numgoals = document.querySelector("#teamtwo-numgoals")
+ 
+teamtwo_shoot_button.addEventListener("click", function(){
+        count2 = parseInt(teamtwo_numshots.innerHTML) + 1;
+        teamtwo_numshots.innerHTML = count2;
+        const rand2 = Math.random();
+        if (rand2 < 0.5){
+            goals2 = parseInt(teamtwo_numgoals.innerHTML) + 1;
+            teamtwo_numgoals.innerHTML = goals2;
+            console.log("Team Two Successful")
+        } else {
+            console.log("Team Two Not Successful")
+        }
+
+})
+
+let reset_count = 0;
+const reset_button = document.querySelector("#reset-button")
+const num_resets = document.querySelector("#num-resets")
+ 
+reset_button.addEventListener("click", function(){
+    teamone_numgoals.innerText = 0;
+    teamone_numshots.innerText = 0;
+    teamtwo_numshots.innerText = 0;
+    teamtwo_numgoals.innerText = 0;
+    reset_count = parseInt(num_resets.innerHTML) + 1;
+        num_resets.innerHTML = reset_count;    
+
+})
