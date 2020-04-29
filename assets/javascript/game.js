@@ -78,8 +78,10 @@ reset_button.addEventListener("click", function(){
     if (parseInt(teamone_numgoals.innerText) || parseInt(teamone_numshots.innerText) || parseInt(teamtwo_numgoals.innerText) || parseInt(teamtwo_numshots.innerText) > 0) {
         reset_count = parseInt(num_resets.innerHTML) + 1;
         num_resets.innerHTML = reset_count; 
+        console.log ("Team Scores Reset By User")
     } else {        
         alert("A game has not been played")
+        console.log ("Take some buzzer shots to reset game.")
 
     }
     
@@ -107,7 +109,12 @@ document.onkeydown = function(event) {
         document.getElementById("teamtwo-shoot-button").click(); 
           break;
        case 40:
-            alert('Down key pressed');
+        var teamoneName = prompt("What would you like to name Team 1?");
+        var teamtwoName = prompt("What would you like to name Team 2");
+        var overwriteTeamone = document.querySelector(".left h2");
+        overwriteTeamone.innerText = teamoneName;
+        var overwriteTeamtwo = document.querySelector(".right h2");
+        overwriteTeamtwo.innerText = teamtwoName;
           break;
     }
 };
