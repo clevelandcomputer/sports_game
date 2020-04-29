@@ -13,3 +13,9 @@
 #reset-container, h1 {
     text-align: center;
 }
+
+#winner {
+    font-size: 100px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

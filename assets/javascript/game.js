@@ -14,8 +14,10 @@ let count = 0;
 const teamone_numshots = document.querySelector("#teamone-numshots")
 const teamone_shoot_button = document.querySelector("#teamone-shoot-button");
 
+
 let goals = 0;
 const teamone_numgoals = document.querySelector("#teamone-numgoals")
+
  
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -78,10 +80,24 @@ reset_button.addEventListener("click", function(){
     if (parseInt(teamone_numgoals.innerText) || parseInt(teamone_numshots.innerText) || parseInt(teamtwo_numgoals.innerText) || parseInt(teamtwo_numshots.innerText) > 0) {
         reset_count = parseInt(num_resets.innerHTML) + 1;
         num_resets.innerHTML = reset_count; 
+
+        var winner = document.querySelector("#winner");
+
+        if (parseInt(teamone_numgoals.innerText) > parseInt(teamtwo_numgoals.innerText) ) 
+            { 
+            winner.innerText = document.querySelector(".left h2").innerText;
+            
+        } 
+        if (parseInt(teamtwo_numgoals.innerText) > parseInt(teamone_numgoals.innerText)) {
+            winner.innerText = document.querySelector(".right h2").innerText;
+        } 
+        if (parseInt(teamtwo_numgoals.innerText) === parseInt(teamone_numgoals.innerText)) {
+            winner.innerText = "Tie Game!";        } 
+        
         console.log ("Team Scores Reset By User")
     } else {        
         alert("A game has not been played")
-        console.log ("Take some buzzer shots to reset game.")
+        console.log ("Take a buzzer shot to reset game.")
 
     }
     
