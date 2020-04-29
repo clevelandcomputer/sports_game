@@ -17,17 +17,17 @@ const teamone_shoot_button = document.querySelector("#teamone-shoot-button");
 let goals = 0;
 const teamone_numgoals = document.querySelector("#teamone-numgoals")
  
-function sleep(seconds){
-    var waitUntil = new Date().getTime() + seconds*1000;
-    while(new Date().getTime() < waitUntil) true;
-}
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
-teamone_shoot_button.addEventListener("click", function(){
+teamone_shoot_button.addEventListener("click", async function(){
         count = parseInt(teamone_numshots.innerHTML) + 1;
         teamone_numshots.innerHTML = count;
         var buzzer = new Audio('assets/audio/buzzer.mp3');
-            // buzzer.play();
-            // sleep(5000);
+            buzzer.play();
+            
+            await sleep(2000);
             const rand = Math.random();
         if (rand < 0.5) {
             goals = parseInt(teamone_numgoals.innerHTML) + 1;
@@ -49,9 +49,12 @@ const teamtwo_shoot_button = document.querySelector("#teamtwo-shoot-button");
 let goals2 = 0;
 const teamtwo_numgoals = document.querySelector("#teamtwo-numgoals")
  
-teamtwo_shoot_button.addEventListener("click", function(){
+teamtwo_shoot_button.addEventListener("click", async function(){
         count2 = parseInt(teamtwo_numshots.innerHTML) + 1;
         teamtwo_numshots.innerHTML = count2;
+        var buzzer = new Audio('assets/audio/buzzer.mp3');
+        buzzer.play();
+        await sleep(2000);
         const rand2 = Math.random();
         if (rand2 < 0.5){
             goals2 = parseInt(teamtwo_numgoals.innerHTML) + 1;
