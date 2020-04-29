@@ -3,6 +3,9 @@
 // The number of shots taken should increase for every click of the "SHOOT" button.
 // The number of goals should only increase when the shot is successful.
 // Clicking the "RESET" button should reset all the shot and goal counters and add 1 to the number of resets.
+
+
+
 // Bonus
 // Play a sound when someone clicks the "Shoot" button. You'll need to read about the <audio> element and how to use it in JS. You will also need to find a sound file to use.
 // Use what you know about HTML and CSS to make the page look better!
@@ -21,8 +24,12 @@ teamone_shoot_button.addEventListener("click", function(){
         if (rand < 0.5){
             goals = parseInt(teamone_numgoals.innerHTML) + 1;
             teamone_numgoals.innerHTML = goals;
+            var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
+            swiss.play();
             console.log("Team One Successful")
         } else {
+            var miss = new Audio('assets/audio/Basketball-Rim.mp3');
+            miss.play();
             console.log("Team One Not Successful")
         }
 
@@ -41,8 +48,12 @@ teamtwo_shoot_button.addEventListener("click", function(){
         if (rand2 < 0.5){
             goals2 = parseInt(teamtwo_numgoals.innerHTML) + 1;
             teamtwo_numgoals.innerHTML = goals2;
+            var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
+            swiss.play();
             console.log("Team Two Successful")
         } else {
+            var miss = new Audio('assets/audio/Basketball-Rim.mp3');
+            miss.play();
             console.log("Team Two Not Successful")
         }
 
