@@ -28,7 +28,7 @@ teamone_shoot_button.addEventListener("click", async function(){
         teamone_numshots.innerHTML = count;
         var buzzer = new Audio('assets/audio/buzzer.mp3');
             buzzer.play();
-            
+            console.log("Half Court Shot")
             await sleep(2000);
             const rand = Math.random();
         if (rand < 0.5) {
@@ -36,11 +36,11 @@ teamone_shoot_button.addEventListener("click", async function(){
             teamone_numgoals.innerHTML = goals;
             var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
             swiss.play();
-            console.log("Team One Successful")
+            console.log(document.querySelector(".left h2").innerText + " Scored")
         } else {
             var miss = new Audio('assets/audio/Basketball-Rim.mp3');
             miss.play();
-            console.log("Team One Not Successful")
+            console.log(document.querySelector(".left h2").innerText + " Missed")
         }
 
 })
@@ -56,6 +56,7 @@ teamtwo_shoot_button.addEventListener("click", async function(){
         teamtwo_numshots.innerHTML = count2;
         var buzzer = new Audio('assets/audio/buzzer.mp3');
         buzzer.play();
+        console.log("Half Court Shot")
         await sleep(2000);
         const rand2 = Math.random();
         if (rand2 < 0.5){
@@ -63,11 +64,11 @@ teamtwo_shoot_button.addEventListener("click", async function(){
             teamtwo_numgoals.innerHTML = goals2;
             var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
             swiss.play();
-            console.log("Team Two Successful")
+            console.log(document.querySelector(".right h2").innerText + " Scored")
         } else {
             var miss = new Audio('assets/audio/Basketball-Rim.mp3');
             miss.play();
-            console.log("Team Two Not Successful")
+            console.log(document.querySelector(".right h2").innerText + " Missed")
         }
 
 })
@@ -76,7 +77,7 @@ let reset_count = 0;
 const reset_button = document.querySelector("#reset-button")
 const num_resets = document.querySelector("#num-resets")
  
-reset_button.addEventListener("click", function(){
+reset_button.addEventListener("click", async function(){
     if (parseInt(teamone_numgoals.innerText) || parseInt(teamone_numshots.innerText) || parseInt(teamtwo_numgoals.innerText) || parseInt(teamtwo_numshots.innerText) > 0) {
         reset_count = parseInt(num_resets.innerHTML) + 1;
         num_resets.innerHTML = reset_count; 
@@ -85,13 +86,11 @@ reset_button.addEventListener("click", function(){
 
         if (parseInt(teamone_numgoals.innerText) > parseInt(teamtwo_numgoals.innerText) ) 
             { 
-            winner.innerText = document.querySelector(".left h2").innerText;
+            winner.innerText = "Winner " + document.querySelector(".left h2").innerText;
             
-        } 
-        if (parseInt(teamtwo_numgoals.innerText) > parseInt(teamone_numgoals.innerText)) {
-            winner.innerText = document.querySelector(".right h2").innerText;
-        } 
-        if (parseInt(teamtwo_numgoals.innerText) === parseInt(teamone_numgoals.innerText)) {
+        } else if (parseInt(teamtwo_numgoals.innerText) > parseInt(teamone_numgoals.innerText)) {
+            winner.innerText = "Winner " + document.querySelector(".right h2").innerText;
+        } else if (parseInt(teamtwo_numgoals.innerText) === parseInt(teamone_numgoals.innerText)) {
             winner.innerText = "Tie Game!";        } 
         
         console.log ("Team Scores Reset By User")
@@ -100,7 +99,7 @@ reset_button.addEventListener("click", function(){
         console.log ("Take a buzzer shot to reset game.")
 
     }
-    
+    await sleep(4000);
     teamone_numgoals.innerText = 0;
     teamone_numshots.innerText = 0;
     teamtwo_numshots.innerText = 0;
