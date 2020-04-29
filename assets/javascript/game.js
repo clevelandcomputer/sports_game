@@ -17,11 +17,19 @@ const teamone_shoot_button = document.querySelector("#teamone-shoot-button");
 let goals = 0;
 const teamone_numgoals = document.querySelector("#teamone-numgoals")
  
+function sleep(seconds){
+    var waitUntil = new Date().getTime() + seconds*1000;
+    while(new Date().getTime() < waitUntil) true;
+}
+
 teamone_shoot_button.addEventListener("click", function(){
         count = parseInt(teamone_numshots.innerHTML) + 1;
         teamone_numshots.innerHTML = count;
-        const rand = Math.random();
-        if (rand < 0.5){
+        var buzzer = new Audio('assets/audio/buzzer.mp3');
+            buzzer.play();
+            sleep(5000);
+            const rand = Math.random();
+        if (rand < 0.5) {
             goals = parseInt(teamone_numgoals.innerHTML) + 1;
             teamone_numgoals.innerHTML = goals;
             var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
@@ -79,3 +87,24 @@ reset_button.addEventListener("click", function(){
       
 
 })
+
+// using keys to shoot
+
+document.onkeydown = function(event) {
+    switch (event.keyCode) {
+       case 37:
+
+            document.getElementById("teamone-shoot-button").click(); 
+          break;
+       case 38:
+        
+        document.getElementById("reset-button").click(); 
+          break;
+       case 39:
+        document.getElementById("teamtwo-shoot-button").click(); 
+          break;
+       case 40:
+            alert('Down key pressed');
+          break;
+    }
+};
