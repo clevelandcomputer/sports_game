@@ -64,11 +64,18 @@ const reset_button = document.querySelector("#reset-button")
 const num_resets = document.querySelector("#num-resets")
  
 reset_button.addEventListener("click", function(){
+    if (parseInt(teamone_numgoals.innerText) || parseInt(teamone_numshots.innerText) || parseInt(teamtwo_numgoals.innerText) || parseInt(teamtwo_numshots.innerText) > 0) {
+        reset_count = parseInt(num_resets.innerHTML) + 1;
+        num_resets.innerHTML = reset_count; 
+    } else {        
+        alert("A game has not been played")
+
+    }
+    
     teamone_numgoals.innerText = 0;
     teamone_numshots.innerText = 0;
     teamtwo_numshots.innerText = 0;
     teamtwo_numgoals.innerText = 0;
-    reset_count = parseInt(num_resets.innerHTML) + 1;
-        num_resets.innerHTML = reset_count;    
+      
 
 })
