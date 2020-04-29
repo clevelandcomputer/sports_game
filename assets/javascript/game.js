@@ -26,7 +26,7 @@ teamone_shoot_button.addEventListener("click", function(){
         count = parseInt(teamone_numshots.innerHTML) + 1;
         teamone_numshots.innerHTML = count;
         var buzzer = new Audio('assets/audio/buzzer.mp3');
-            buzzer.play();
+            // buzzer.play();
             // sleep(5000);
             const rand = Math.random();
         if (rand < 0.5) {
