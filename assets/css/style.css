@@ -29,3 +29,11 @@
     height: 200px;
     margin: 0 auto;
 }
+
+#countdown, #countdown-message {
+    display: none;
+    width: 200px;
+    margin: 0 auto;
+    color: yellow;
+    background-color: black;
+}

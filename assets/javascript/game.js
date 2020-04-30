@@ -96,19 +96,46 @@ const reset_button = document.querySelector("#reset-button")
 const num_resets = document.querySelector("#num-resets")
 const winner = document.querySelector("#winner");
  
+
+
 reset_button.addEventListener("click", async function(){
     if (parseInt(teamone_numgoals.innerText) || parseInt(teamone_numshots.innerText) || parseInt(teamtwo_numgoals.innerText) || parseInt(teamtwo_numshots.innerText) > 0) {
         reset_count = parseInt(num_resets.innerHTML) + 1;
         num_resets.innerHTML = reset_count; 
 
-        
+        var seconds = document.querySelector("#countdown").innerText;
+        var countdown = setInterval(function() {
+            seconds--;
+            document.querySelector("#countdown").innerText = seconds;
+            if (seconds <= 0) clearInterval(countdown);
+        }, 1000);
 
         if (parseInt(teamone_numgoals.innerText) > parseInt(teamtwo_numgoals.innerText) ) 
             { 
+              
             winner.innerText = document.querySelector(".left h2").innerText + " Wins!";
+            
+           
+            document.querySelector("#countdown").innerHTML = 5;
+            document.querySelector("#countdown").style.display = "block";
+            document.querySelector("#countdown-message").style.display = "block";
+            await sleep(5000);
+            document.querySelector("#countdown").style.display = "none";
+            document.querySelector("#countdown-message").style.display = "none";
+
+            
             
         } else if (parseInt(teamtwo_numgoals.innerText) > parseInt(teamone_numgoals.innerText)) {
             winner.innerText = document.querySelector(".right h2").innerText + " Wins!";
+           
+           
+            document.querySelector("#countdown").innerHTML = 5;
+            document.querySelector("#countdown").style.display = "block";
+            document.querySelector("#countdown-message").style.display = "block";
+            await sleep(5000);
+            document.querySelector("#countdown").style.display = "none";
+            document.querySelector("#countdown-message").style.display = "none";
+            
         } else if (parseInt(teamtwo_numgoals.innerText) === parseInt(teamone_numgoals.innerText)) {
             winner.innerText = "Tie Game!";        } 
         
@@ -118,7 +145,7 @@ reset_button.addEventListener("click", async function(){
         console.log ("Take a buzzer shot to reset game.")
 
     }
-    await sleep(4000);
+    // await sleep(4000);
     teamone_numgoals.innerText = 0;
     teamone_numshots.innerText = 0;
     teamtwo_numshots.innerText = 0;
