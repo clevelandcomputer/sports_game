@@ -3,9 +3,11 @@
 }
 .left {
     float: left;
+    /* margin-left: 750px; */
 }
 .right {
     float: right;
+    /* margin-right: 750px; */
 }
 .clear {
     clear: both;
@@ -18,4 +20,12 @@
     font-size: 100px;
     margin-top: 0px;
     margin-bottom: 0px;
+}
+.shotlog {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: auto;
+    width: 190px;
+    height: 200px;
+    margin: 0 auto;
 }

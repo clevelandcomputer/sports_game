@@ -17,7 +17,7 @@ const teamone_shoot_button = document.querySelector("#teamone-shoot-button");
 
 let goals = 0;
 const teamone_numgoals = document.querySelector("#teamone-numgoals")
-
+const shotlog = document.querySelector(".shotlog");
  
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -26,9 +26,13 @@ function sleep(ms) {
 teamone_shoot_button.addEventListener("click", async function(){
         count = parseInt(teamone_numshots.innerHTML) + 1;
         teamone_numshots.innerHTML = count;
+        teamone_shoot_button.disabled = true;
         var buzzer = new Audio('assets/audio/buzzer.mp3');
             buzzer.play();
-            console.log("Half Court Shot")
+            console.log(document.querySelector(".left h2").innerText + "\'s " + "Half Court Shot")
+            
+            shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".left h2").innerText + "\'s " + "Half Court Shot";
+            
             await sleep(2000);
             const rand = Math.random();
         if (rand < 0.5) {
@@ -37,10 +41,16 @@ teamone_shoot_button.addEventListener("click", async function(){
             var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
             swiss.play();
             console.log(document.querySelector(".left h2").innerText + " Scored")
+            console.log(rand);
+            shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".left h2").innerText + " Scored";
+            teamone_shoot_button.disabled = false;
         } else {
             var miss = new Audio('assets/audio/Basketball-Rim.mp3');
             miss.play();
             console.log(document.querySelector(".left h2").innerText + " Missed")
+            console.log(rand);
+            shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".left h2").innerText + " Missed";
+            teamone_shoot_button.disabled = false;
         }
 
 })
@@ -54,9 +64,11 @@ const teamtwo_numgoals = document.querySelector("#teamtwo-numgoals")
 teamtwo_shoot_button.addEventListener("click", async function(){
         count2 = parseInt(teamtwo_numshots.innerHTML) + 1;
         teamtwo_numshots.innerHTML = count2;
+        teamtwo_shoot_button.disabled = true;
         var buzzer = new Audio('assets/audio/buzzer.mp3');
         buzzer.play();
-        console.log("Half Court Shot")
+        console.log(document.querySelector(".right h2").innerText + "\'s " + "Half Court Shot")
+        shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".right h2").innerText + "\'s " + "Half Court Shot";
         await sleep(2000);
         const rand2 = Math.random();
         if (rand2 < 0.5){
@@ -65,10 +77,16 @@ teamtwo_shoot_button.addEventListener("click", async function(){
             var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
             swiss.play();
             console.log(document.querySelector(".right h2").innerText + " Scored")
+            console.log(rand2);
+            shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".right h2").innerText + " Scored";
+            teamtwo_shoot_button.disabled = false;
         } else {
             var miss = new Audio('assets/audio/Basketball-Rim.mp3');
             miss.play();
             console.log(document.querySelector(".right h2").innerText + " Missed")
+            console.log(rand2);
+            shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".right h2").innerText + " Missed";
+            teamtwo_shoot_button.disabled = false;
         }
 
 })
@@ -76,20 +94,21 @@ teamtwo_shoot_button.addEventListener("click", async function(){
 let reset_count = 0;
 const reset_button = document.querySelector("#reset-button")
 const num_resets = document.querySelector("#num-resets")
+const winner = document.querySelector("#winner");
  
 reset_button.addEventListener("click", async function(){
     if (parseInt(teamone_numgoals.innerText) || parseInt(teamone_numshots.innerText) || parseInt(teamtwo_numgoals.innerText) || parseInt(teamtwo_numshots.innerText) > 0) {
         reset_count = parseInt(num_resets.innerHTML) + 1;
         num_resets.innerHTML = reset_count; 
 
-        var winner = document.querySelector("#winner");
+        
 
         if (parseInt(teamone_numgoals.innerText) > parseInt(teamtwo_numgoals.innerText) ) 
             { 
-            winner.innerText = "Winner " + document.querySelector(".left h2").innerText;
+            winner.innerText = document.querySelector(".left h2").innerText + " Wins!";
             
         } else if (parseInt(teamtwo_numgoals.innerText) > parseInt(teamone_numgoals.innerText)) {
-            winner.innerText = "Winner " + document.querySelector(".right h2").innerText;
+            winner.innerText = document.querySelector(".right h2").innerText + " Wins!";
         } else if (parseInt(teamtwo_numgoals.innerText) === parseInt(teamone_numgoals.innerText)) {
             winner.innerText = "Tie Game!";        } 
         
@@ -104,6 +123,8 @@ reset_button.addEventListener("click", async function(){
     teamone_numshots.innerText = 0;
     teamtwo_numshots.innerText = 0;
     teamtwo_numgoals.innerText = 0;
+    shotlog.innerText = "";
+    winner.innerText = "";
       
 
 })
@@ -124,8 +145,8 @@ document.onkeydown = function(event) {
         document.getElementById("teamtwo-shoot-button").click(); 
           break;
        case 40:
-        var teamoneName = prompt("What would you like to name Team 1?");
-        var teamtwoName = prompt("What would you like to name Team 2");
+        var teamoneName = prompt("What would you like to name Team 1?", "Team 1");
+        var teamtwoName = prompt("What would you like to name Team 2", "Team 2");
         var overwriteTeamone = document.querySelector(".left h2");
         overwriteTeamone.innerText = teamoneName;
         var overwriteTeamtwo = document.querySelector(".right h2");
