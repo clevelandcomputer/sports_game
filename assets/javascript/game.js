@@ -27,6 +27,7 @@ teamone_shoot_button.addEventListener("click", async function(){
         count = parseInt(teamone_numshots.innerHTML) + 1;
         teamone_numshots.innerHTML = count;
         teamone_shoot_button.disabled = true;
+        reset_button.disabled = true;
         var buzzer = new Audio('assets/audio/buzzer.mp3');
             buzzer.play();
             console.log(document.querySelector(".left h2").innerText + "\'s " + "Half Court Shot")
@@ -51,6 +52,7 @@ teamone_shoot_button.addEventListener("click", async function(){
             console.log(rand);
             shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".left h2").innerText + " Missed";
             teamone_shoot_button.disabled = false;
+            reset_button.disabled = false;
         }
 
 })
@@ -65,6 +67,7 @@ teamtwo_shoot_button.addEventListener("click", async function(){
         count2 = parseInt(teamtwo_numshots.innerHTML) + 1;
         teamtwo_numshots.innerHTML = count2;
         teamtwo_shoot_button.disabled = true;
+        reset_button.disabled = true;
         var buzzer = new Audio('assets/audio/buzzer.mp3');
         buzzer.play();
         console.log(document.querySelector(".right h2").innerText + "\'s " + "Half Court Shot")
@@ -87,6 +90,7 @@ teamtwo_shoot_button.addEventListener("click", async function(){
             console.log(rand2);
             shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".right h2").innerText + " Missed";
             teamtwo_shoot_button.disabled = false;
+            reset_button.disabled = false;
         }
 
 })
