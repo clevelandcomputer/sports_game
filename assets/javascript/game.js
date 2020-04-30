@@ -130,8 +130,6 @@ reset_button.addEventListener("click", async function(){
         } else if (parseInt(teamtwo_numgoals.innerText) > parseInt(teamone_numgoals.innerText)) {
             winner.innerText = document.querySelector(".right h2").innerText + " Wins!";
            
-           
-            countdownVar.innerHTML = 5;
             countdownVar.style.display = "block";
             countdownMessage.style.display = "block";
             await sleep(5000);
