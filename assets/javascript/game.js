@@ -95,14 +95,16 @@ let reset_count = 0;
 const reset_button = document.querySelector("#reset-button")
 const num_resets = document.querySelector("#num-resets")
 const winner = document.querySelector("#winner");
- 
+const countdownVar = document.querySelector("#countdown");
+const countdownMessage = document.querySelector("#countdown-message");
+
 
 
 reset_button.addEventListener("click", async function(){
     if (parseInt(teamone_numgoals.innerText) || parseInt(teamone_numshots.innerText) || parseInt(teamtwo_numgoals.innerText) || parseInt(teamtwo_numshots.innerText) > 0) {
         reset_count = parseInt(num_resets.innerHTML) + 1;
         num_resets.innerHTML = reset_count; 
-
+        countdownVar.innerText = 5;
         var seconds = document.querySelector("#countdown").innerText;
         var countdown = setInterval(function() {
             seconds--;
@@ -116,12 +118,12 @@ reset_button.addEventListener("click", async function(){
             winner.innerText = document.querySelector(".left h2").innerText + " Wins!";
             
            
-            document.querySelector("#countdown").innerHTML = 5;
-            document.querySelector("#countdown").style.display = "block";
-            document.querySelector("#countdown-message").style.display = "block";
+            
+            countdownVar.style.display = "block";
+            countdownMessage.style.display = "block";
             await sleep(5000);
-            document.querySelector("#countdown").style.display = "none";
-            document.querySelector("#countdown-message").style.display = "none";
+            countdownVar.style.display = "none";
+            countdownMessage.style.display = "none";
 
             
             
@@ -129,12 +131,12 @@ reset_button.addEventListener("click", async function(){
             winner.innerText = document.querySelector(".right h2").innerText + " Wins!";
            
            
-            document.querySelector("#countdown").innerHTML = 5;
-            document.querySelector("#countdown").style.display = "block";
-            document.querySelector("#countdown-message").style.display = "block";
+            countdownVar.innerHTML = 5;
+            countdownVar.style.display = "block";
+            countdownMessage.style.display = "block";
             await sleep(5000);
-            document.querySelector("#countdown").style.display = "none";
-            document.querySelector("#countdown-message").style.display = "none";
+            countdownVar.style.display = "none";
+            countdownMessage.style.display = "none";
             
         } else if (parseInt(teamtwo_numgoals.innerText) === parseInt(teamone_numgoals.innerText)) {
             winner.innerText = "Tie Game!";        } 
