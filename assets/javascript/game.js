@@ -124,7 +124,7 @@ reset_button.addEventListener("click", async function(){
         if (parseInt(teamone_numgoals.innerText) > parseInt(teamtwo_numgoals.innerText) ) 
             { 
               
-            winner.innerText = document.querySelector(".left h2").innerText + " Wins By"  + (parseInt(teamone_numgoals.innerText) - parseInt(teamtwo_numgoals.innerText)) ;
+            winner.innerText = document.querySelector(".left h2").innerText + " Wins By "  + (parseInt(teamone_numgoals.innerText) - parseInt(teamtwo_numgoals.innerText)) ;
             
            
             

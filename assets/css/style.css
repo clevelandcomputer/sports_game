@@ -13,14 +13,14 @@
 }
 .left {
     position: relative;
-    top: 90px;
+    top: 40px;
     left: 70px;
     float: left;
     
 }
 .right {
     position: relative;
-    top: 90px;
+    top: 40px;
     right: 70px;
     float: right;
     
@@ -55,7 +55,7 @@ h1 {
     overflow: auto;
     width: 200px;
     height: 250px;
-    left: 320px;
+    left: 325px;
     top: 434px;
    
     background-color: #fd813d;
@@ -72,3 +72,48 @@ h1 {
     text-align: center;
 }
 
+#teamone-shoot-button, #teamtwo-shoot-button {
+    width: 100px;
+    height: 100px;
+    background-color: #fd813d;
+    border-radius: 50%;
+    border-width: 0px;
+    margin-top: 10p;
+}
+#reset-button {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border-radius: 50%;
+    border-width: 0px;
+    margin-top: 10p;
+    color: white;
+   
+}
+.up {
+    position: relative;
+    float: left;
+    left: 70px;
+    top: -60px;
+}
+.down {
+    position: relative;
+    float: right;
+    right: 40px;
+    top: -60px;
+    
+}
+.left h2 {
+    position: relative;
+    top: -80px;
+    left: -2px;
+    font-size: x-large;
+
+}
+.right h2 {
+    position: relative;
+    top: -80px;
+    right: -55px;
+    font-size: x-large;
+
+}
