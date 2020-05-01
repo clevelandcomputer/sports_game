@@ -27,6 +27,7 @@ teamone_shoot_button.addEventListener("click", async function(){
         count = parseInt(teamone_numshots.innerHTML) + 1;
         teamone_numshots.innerHTML = count;
         teamone_shoot_button.disabled = true;
+        reset_button.disabled = true;
         var buzzer = new Audio('assets/audio/buzzer.mp3');
             buzzer.play();
             console.log(document.querySelector(".left h2").innerText + "\'s " + "Half Court Shot")
@@ -36,7 +37,7 @@ teamone_shoot_button.addEventListener("click", async function(){
             await sleep(2000);
             const rand = Math.random();
         if (rand < 0.5) {
-            goals = parseInt(teamone_numgoals.innerHTML) + 1;
+            goals = parseInt(teamone_numgoals.innerHTML) + 3;
             teamone_numgoals.innerHTML = goals;
             var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
             swiss.play();
@@ -44,6 +45,7 @@ teamone_shoot_button.addEventListener("click", async function(){
             console.log(rand);
             shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".left h2").innerText + " Scored";
             teamone_shoot_button.disabled = false;
+            reset_button.disabled = false;
         } else {
             var miss = new Audio('assets/audio/Basketball-Rim.mp3');
             miss.play();
@@ -51,6 +53,7 @@ teamone_shoot_button.addEventListener("click", async function(){
             console.log(rand);
             shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".left h2").innerText + " Missed";
             teamone_shoot_button.disabled = false;
+            reset_button.disabled = false;
         }
 
 })
@@ -65,6 +68,7 @@ teamtwo_shoot_button.addEventListener("click", async function(){
         count2 = parseInt(teamtwo_numshots.innerHTML) + 1;
         teamtwo_numshots.innerHTML = count2;
         teamtwo_shoot_button.disabled = true;
+        reset_button.disabled = true;
         var buzzer = new Audio('assets/audio/buzzer.mp3');
         buzzer.play();
         console.log(document.querySelector(".right h2").innerText + "\'s " + "Half Court Shot")
@@ -72,7 +76,7 @@ teamtwo_shoot_button.addEventListener("click", async function(){
         await sleep(2000);
         const rand2 = Math.random();
         if (rand2 < 0.5){
-            goals2 = parseInt(teamtwo_numgoals.innerHTML) + 1;
+            goals2 = parseInt(teamtwo_numgoals.innerHTML) + 3;
             teamtwo_numgoals.innerHTML = goals2;
             var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
             swiss.play();
@@ -80,6 +84,7 @@ teamtwo_shoot_button.addEventListener("click", async function(){
             console.log(rand2);
             shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".right h2").innerText + " Scored";
             teamtwo_shoot_button.disabled = false;
+            reset_button.disabled = false;
         } else {
             var miss = new Audio('assets/audio/Basketball-Rim.mp3');
             miss.play();
@@ -87,6 +92,7 @@ teamtwo_shoot_button.addEventListener("click", async function(){
             console.log(rand2);
             shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".right h2").innerText + " Missed";
             teamtwo_shoot_button.disabled = false;
+            reset_button.disabled = false;
         }
 
 })
@@ -105,6 +111,9 @@ reset_button.addEventListener("click", async function(){
         reset_count = parseInt(num_resets.innerHTML) + 1;
         num_resets.innerHTML = reset_count; 
         countdownVar.innerText = 5;
+        teamtwo_shoot_button.disabled = true;
+        teamone_shoot_button.disabled = true;
+        reset_button.disabled = true;
         var seconds = document.querySelector("#countdown").innerText;
         var countdown = setInterval(function() {
             seconds--;
@@ -115,7 +124,7 @@ reset_button.addEventListener("click", async function(){
         if (parseInt(teamone_numgoals.innerText) > parseInt(teamtwo_numgoals.innerText) ) 
             { 
               
-            winner.innerText = document.querySelector(".left h2").innerText + " Wins!";
+            winner.innerText = document.querySelector(".left h2").innerText + " Wins By"  + (parseInt(teamone_numgoals.innerText) - parseInt(teamtwo_numgoals.innerText)) ;
             
            
             
@@ -124,20 +133,49 @@ reset_button.addEventListener("click", async function(){
             await sleep(5000);
             countdownVar.style.display = "none";
             countdownMessage.style.display = "none";
-
+            // await sleep(4000);
+            teamone_numgoals.innerText = 0;
+            teamone_numshots.innerText = 0;
+            teamtwo_numshots.innerText = 0;
+            teamtwo_numgoals.innerText = 0;
+            shotlog.innerText = "";
+            winner.innerText = "";
+            teamtwo_shoot_button.disabled = false;
+            teamone_shoot_button.disabled = false;
+            reset_button.disabled = false;
             
             
         } else if (parseInt(teamtwo_numgoals.innerText) > parseInt(teamone_numgoals.innerText)) {
-            winner.innerText = document.querySelector(".right h2").innerText + " Wins!";
+            winner.innerText = document.querySelector(".right h2").innerText + " Wins By "  + (parseInt(teamtwo_numgoals.innerText) - parseInt(teamone_numgoals.innerText)) ;
            
             countdownVar.style.display = "block";
             countdownMessage.style.display = "block";
             await sleep(5000);
             countdownVar.style.display = "none";
             countdownMessage.style.display = "none";
+            // await sleep(4000);
+            teamone_numgoals.innerText = 0;
+            teamone_numshots.innerText = 0;
+            teamtwo_numshots.innerText = 0;
+            teamtwo_numgoals.innerText = 0;
+            shotlog.innerText = "";
+            winner.innerText = "";
+            teamtwo_shoot_button.disabled = false;
+            teamone_shoot_button.disabled = false;
+            reset_button.disabled = false;
             
         } else if (parseInt(teamtwo_numgoals.innerText) === parseInt(teamone_numgoals.innerText)) {
             winner.innerText = "Tie Game!";        } 
+            await sleep(4000);
+            teamone_numgoals.innerText = 0;
+            teamone_numshots.innerText = 0;
+            teamtwo_numshots.innerText = 0;
+            teamtwo_numgoals.innerText = 0;
+            shotlog.innerText = "";
+            winner.innerText = "";
+            teamtwo_shoot_button.disabled = false;
+            teamone_shoot_button.disabled = false;
+            reset_button.disabled = false;
         
         console.log ("Team Scores Reset By User")
     } else {        
@@ -145,13 +183,7 @@ reset_button.addEventListener("click", async function(){
         console.log ("Take a buzzer shot to reset game.")
 
     }
-    await sleep(4000);
-    teamone_numgoals.innerText = 0;
-    teamone_numshots.innerText = 0;
-    teamtwo_numshots.innerText = 0;
-    teamtwo_numgoals.innerText = 0;
-    shotlog.innerText = "";
-    winner.innerText = "";
+   
       
 
 })
