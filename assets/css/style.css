@@ -1,3 +1,7 @@
+*:focus {
+    outline:none !important;
+}
+
 #entire {
     background-image: url("../images/court.jpg");
     background-position: center top;
@@ -13,16 +17,19 @@
 }
 .left {
     position: relative;
-    top: 40px;
-    left: 70px;
+    
+    left: 50px;
     float: left;
+    font-size: x-large;
+    text-align: center;
     
 }
 .right {
     position: relative;
-    top: 40px;
-    right: 70px;
+    right: 50px;
     float: right;
+    font-size: x-large;
+    text-align: center;
     
 }
 .clear {
@@ -53,9 +60,9 @@ h1 {
     display: flex;
     flex-direction: column-reverse;
     overflow: auto;
-    width: 200px;
+    width: 220px;
     height: 250px;
-    left: 325px;
+    left: 312px;
     top: 434px;
    
     background-color: #fd813d;
@@ -75,7 +82,8 @@ h1 {
 #teamone-shoot-button, #teamtwo-shoot-button {
     width: 100px;
     height: 100px;
-    background-color: #fd813d;
+    background-color: black;
+    color: #fd813d;
     border-radius: 50%;
     border-width: 0px;
     margin-top: 10p;
@@ -86,34 +94,57 @@ h1 {
     background-color: black;
     border-radius: 50%;
     border-width: 0px;
-    margin-top: 10p;
-    color: white;
+    /* margin-top: 10px; */
+    color: #fd813d;
    
 }
 .up {
     position: relative;
     float: left;
-    left: 70px;
+    left: 46px;
     top: -60px;
+    font-size: x-large;
+    text-align: center;
 }
 .down {
     position: relative;
     float: right;
-    right: 40px;
+    right: 25px;
     top: -60px;
+    font-size: x-large;
+    text-align: center;
     
 }
 .left h2 {
     position: relative;
-    top: -80px;
-    left: -2px;
+    top: -110px;
+    /* left: -2px; */
     font-size: x-large;
 
 }
 .right h2 {
     position: relative;
-    top: -80px;
-    right: -55px;
+    top: -110px;
+    /* right: -25px; */
     font-size: x-large;
 
+}
+#simulate {
+    position: relative;
+    top: -119px;
+    left: 175px;
+    background-color: black;
+    color: #fd813d;
+    border: none;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border-radius: 50%;
+    border-width: 0px;
+    
+    
+}
+#entire h1 {
+    position: relative;
+    top: 20px;
 }
