@@ -1,6 +1,9 @@
 *:focus {
     outline:none !important;
 }
+body {
+    overflow: scroll;
+}
 
 #entire {
     background-image: url("../images/court.jpg");
@@ -10,6 +13,7 @@
     height: 900px;
     width: 850px;;
     margin: 0 auto;
+    
 }
 
 .hide {
@@ -59,13 +63,14 @@ h1 {
     text-align: center;
     display: flex;
     flex-direction: column-reverse;
-    overflow: auto;
+    overflow-y: scroll;
     width: 220px;
     height: 250px;
     left: 312px;
     top: 434px;
    
     background-color: #fd813d;
+    
 }
 
 #countdown, #countdown-message {

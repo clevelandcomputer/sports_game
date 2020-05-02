@@ -133,6 +133,7 @@ teamtwo_shoot_button.addEventListener("click", async function(){
         buzzer.play();
         console.log("> " + document.querySelector(".right h2").innerText + "\'s " + "Half Court Shot")
         shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".right h2").innerText + "\'s " + "Half Court Shot >";
+        
         ballRight.style.visibility = "visible";
         await sleep(2000);
         const rand2 = Math.random();
