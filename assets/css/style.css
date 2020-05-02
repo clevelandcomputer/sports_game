@@ -148,3 +148,156 @@ h1 {
     position: relative;
     top: 20px;
 }
+
+#ball {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -750px;
+    left: 360px;
+    border-radius: 50%;
+}
+#ball2 {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -765px;
+    left: 265px;
+    border-radius: 50%;
+}
+#ball3 {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -755px;
+    left: 170px;
+    border-radius: 50%;
+}
+#ball4 {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -725px;
+    left: 90px;
+    border-radius: 50%;
+}
+#ball5 {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -690px;
+    left: 20px;
+    border-radius: 50%;
+}
+#ball6 {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -655px;
+    left: -55px;
+    border-radius: 50%;
+}
+#ball7 {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -613px;
+    left: -128px;
+    border-radius: 50%;
+}
+#ballMiss {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -641px;
+    left: -165px;
+    border-radius: 50%;
+}
+#ballRight {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -750px;
+    left: 190px;
+    border-radius: 50%;
+    transform: rotate(180deg);
+}
+#ball2Right {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -765px;
+    left: 215px;
+    border-radius: 50%;
+    transform: rotate(180deg);
+}
+#ball3Right {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -755px;
+    left: 245px;
+    border-radius: 50%;
+    transform: rotate(180deg);
+}
+#ball4Right {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -725px;
+    left: 260px;
+    border-radius: 50%;
+    transform: rotate(180deg);
+}
+#ball5Right {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -690px;
+    left: 265px;
+    border-radius: 50%;
+    transform: rotate(180deg);
+}
+#ball6Right {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -655px;
+    left: 260px;
+    border-radius: 50%;
+    transform: rotate(180deg);
+}
+#ball7Right {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -613px;
+    left: 269px;
+    border-radius: 50%;
+    transform: rotate(180deg);
+}
+#ballMissRight {
+    width: 30px;
+    height: 30px;
+    visibility: hidden;
+    position: relative;
+    top: -641px;
+    left: 236px;
+    border-radius: 50%;
+    transform: rotate(180deg);
+}

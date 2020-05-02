@@ -19,6 +19,22 @@ const simulate = document.querySelector("#simulate");
 let goals = 0;
 const teamone_numgoals = document.querySelector("#teamone-numgoals")
 const shotlog = document.querySelector(".shotlog");
+const ball = document.querySelector("#ball");
+const ball2 = document.querySelector("#ball2");
+const ball3 = document.querySelector("#ball3");
+const ball4 = document.querySelector("#ball4");
+const ball5 = document.querySelector("#ball5");
+const ball6 = document.querySelector("#ball6");
+const ball7 = document.querySelector("#ball7");
+const ball_miss = document.querySelector("#ballMiss");
+const ballRight = document.querySelector("#ballRight");
+const ball2Right = document.querySelector("#ball2Right");
+const ball3Right = document.querySelector("#ball3Right");
+const ball4Right = document.querySelector("#ball4Right");
+const ball5Right = document.querySelector("#ball5Right");
+const ball6Right = document.querySelector("#ball6Right");
+const ball7Right = document.querySelector("#ball7Right");
+const ball_miss_right = document.querySelector("#ballMissRight");
  
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -31,17 +47,27 @@ teamone_shoot_button.addEventListener("click", async function(){
         teamtwo_shoot_button.disabled = true;
         reset_button.disabled = true;
         simulate.disabled = true;
+        
         var buzzer = new Audio('assets/audio/buzzer.mp3');
             buzzer.play();
             console.log("< " + document.querySelector(".left h2").innerText + "\'s " + "Half Court Shot")
             
             shotlog.innerText = shotlog.innerText + "\n" + "< " + document.querySelector(".left h2").innerText + "\'s " + "Half Court Shot";
-            
+            ball.style.visibility = "visible";
+             
             await sleep(2000);
             const rand = Math.random();
         if (rand < 0.5) {
             goals = parseInt(teamone_numgoals.innerHTML) + 3;
             teamone_numgoals.innerHTML = goals;
+            
+            ball2.style.visibility = "visible";
+             ball3.style.visibility = "visible";
+             ball4.style.visibility = "visible";
+             ball5.style.visibility = "visible";
+             ball6.style.visibility = "visible";
+             ball7.style.visibility = "visible";
+             
             var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
             swiss.play();
             console.log("< " + document.querySelector(".left h2").innerText + " Scored")
@@ -51,7 +77,23 @@ teamone_shoot_button.addEventListener("click", async function(){
             teamtwo_shoot_button.disabled = false;
             reset_button.disabled = false;
             simulate.disabled = false;
+            await sleep(1000);
+            ball.style.visibility ="hidden"
+            ball2.style.visibility = "hidden";
+             ball3.style.visibility = "hidden";
+             ball4.style.visibility = "hidden";
+             ball5.style.visibility = "hidden";
+             ball6.style.visibility = "hidden";
+             ball7.style.visibility = "hidden";
         } else {
+            
+            ball2.style.visibility = "visible";
+             ball3.style.visibility = "visible";
+             ball4.style.visibility = "visible";
+             ball5.style.visibility = "visible";
+             ball6.style.visibility = "visible";
+             ball_miss.style.visibility = "visible";
+            
             var miss = new Audio('assets/audio/Basketball-Rim.mp3');
             miss.play();
             console.log("< " + document.querySelector(".left h2").innerText + " Missed")
@@ -61,6 +103,14 @@ teamone_shoot_button.addEventListener("click", async function(){
             teamtwo_shoot_button.disabled = false
             reset_button.disabled = false;
             simulate.disabled = false;
+            await sleep(1000);
+            ball.style.visibility ="hidden"
+            ball2.style.visibility = "hidden";
+             ball3.style.visibility = "hidden";
+             ball4.style.visibility = "hidden";
+             ball5.style.visibility = "hidden";
+             ball6.style.visibility = "hidden";
+             ball_miss.style.visibility = "hidden";
         }
 
 })
@@ -83,11 +133,20 @@ teamtwo_shoot_button.addEventListener("click", async function(){
         buzzer.play();
         console.log("> " + document.querySelector(".right h2").innerText + "\'s " + "Half Court Shot")
         shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".right h2").innerText + "\'s " + "Half Court Shot >";
+        ballRight.style.visibility = "visible";
         await sleep(2000);
         const rand2 = Math.random();
         if (rand2 < 0.5){
             goals2 = parseInt(teamtwo_numgoals.innerHTML) + 3;
             teamtwo_numgoals.innerHTML = goals2;
+
+            ball2Right.style.visibility = "visible";
+            ball3Right.style.visibility = "visible";
+            ball4Right.style.visibility = "visible";
+            ball5Right.style.visibility = "visible";
+            ball6Right.style.visibility = "visible";
+            ball7Right.style.visibility = "visible";
+
             var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
             swiss.play();
             console.log("> " + document.querySelector(".right h2").innerText + " Scored")
@@ -97,7 +156,21 @@ teamtwo_shoot_button.addEventListener("click", async function(){
             teamone_shoot_button.disabled = false;
             reset_button.disabled = false;
             simulate.disabled = false;
+            await sleep(1000);
+            ballRight.style.visibility ="hidden"
+            ball2Right.style.visibility = "hidden";
+             ball3Right.style.visibility = "hidden";
+             ball4Right.style.visibility = "hidden";
+             ball5Right.style.visibility = "hidden";
+             ball6Right.style.visibility = "hidden";
+             ball7Right.style.visibility = "hidden";
         } else {
+            ball2Right.style.visibility = "visible";
+            ball3Right.style.visibility = "visible";
+            ball4Right.style.visibility = "visible";
+            ball5Right.style.visibility = "visible";
+            ball6Right.style.visibility = "visible";
+            ball_miss_right.style.visibility = "visible";
             var miss = new Audio('assets/audio/Basketball-Rim.mp3');
             miss.play();
             console.log("> " + document.querySelector(".right h2").innerText + " Missed")
@@ -107,6 +180,14 @@ teamtwo_shoot_button.addEventListener("click", async function(){
             teamone_shoot_button.disabled = false;
             reset_button.disabled = false;
             simulate.disabled = false;
+            await sleep(1000);
+            ballRight.style.visibility ="hidden"
+            ball2Right.style.visibility = "hidden";
+             ball3Right.style.visibility = "hidden";
+             ball4Right.style.visibility = "hidden";
+             ball5Right.style.visibility = "hidden";
+             ball6Right.style.visibility = "hidden";
+             ball_miss_right.style.visibility = "hidden";
         }
 
 })
