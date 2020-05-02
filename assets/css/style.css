@@ -3,6 +3,7 @@
 }
 body {
     overflow: scroll;
+    background-color: #f1f1f1;
 }
 
 #entire {
@@ -66,7 +67,7 @@ h1 {
     overflow-y: scroll;
     width: 220px;
     height: 250px;
-    left: 312px;
+    left: 322px;
     top: 434px;
    
     background-color: black;

@@ -316,7 +316,7 @@ document.onkeydown = function(event) {
 
 simulate.addEventListener("click", async function(){
       
-      
+    
       reset_button.disabled = true;
       var simulateTeamoneName = prompt("What would you like to name Team 1?", "Team 1");
       var simulateTeamtwoName = prompt("What would you like to name Team 2", "Team 2");
