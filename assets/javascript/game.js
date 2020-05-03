@@ -48,7 +48,7 @@ teamone_shoot_button.addEventListener("click", async function(){
         reset_button.disabled = true;
         simulate.disabled = true;
         
-        var buzzer = new Audio('assets/audio/buzzer.mp3');
+        let buzzer = new Audio('assets/audio/buzzer.mp3');
             buzzer.play();
             console.log("< " + document.querySelector(".left h2").innerText + "\'s " + "Half Court Shot")
             
@@ -68,7 +68,7 @@ teamone_shoot_button.addEventListener("click", async function(){
              ball6.style.visibility = "visible";
              ball7.style.visibility = "visible";
              
-            var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
+            let swiss = new Audio('assets/audio/Basketball-Swish.mp3');
             swiss.play();
             console.log("< " + document.querySelector(".left h2").innerText + " Scored")
             console.log("< " + rand);
@@ -94,7 +94,7 @@ teamone_shoot_button.addEventListener("click", async function(){
              ball6.style.visibility = "visible";
              ball_miss.style.visibility = "visible";
             
-            var miss = new Audio('assets/audio/Basketball-Rim.mp3');
+            let miss = new Audio('assets/audio/Basketball-Rim.mp3');
             miss.play();
             console.log("< " + document.querySelector(".left h2").innerText + " Missed")
             console.log("< " + rand);
@@ -129,7 +129,7 @@ teamtwo_shoot_button.addEventListener("click", async function(){
         reset_button.disabled = true;
         simulate.disabled = true;
         
-        var buzzer = new Audio('assets/audio/buzzer.mp3');
+        let buzzer = new Audio('assets/audio/buzzer.mp3');
         buzzer.play();
         console.log("> " + document.querySelector(".right h2").innerText + "\'s " + "Half Court Shot")
         shotlog.innerText = shotlog.innerText + "\n" + document.querySelector(".right h2").innerText + "\'s " + "Half Court Shot >";
@@ -148,7 +148,7 @@ teamtwo_shoot_button.addEventListener("click", async function(){
             ball6Right.style.visibility = "visible";
             ball7Right.style.visibility = "visible";
 
-            var swiss = new Audio('assets/audio/Basketball-Swish.mp3');
+            let swiss = new Audio('assets/audio/Basketball-Swish.mp3');
             swiss.play();
             console.log("> " + document.querySelector(".right h2").innerText + " Scored")
             console.log("> " + rand2);
@@ -172,7 +172,7 @@ teamtwo_shoot_button.addEventListener("click", async function(){
             ball5Right.style.visibility = "visible";
             ball6Right.style.visibility = "visible";
             ball_miss_right.style.visibility = "visible";
-            var miss = new Audio('assets/audio/Basketball-Rim.mp3');
+            let miss = new Audio('assets/audio/Basketball-Rim.mp3');
             miss.play();
             console.log("> " + document.querySelector(".right h2").innerText + " Missed")
             console.log("> " + rand2);
@@ -211,8 +211,8 @@ reset_button.addEventListener("click", async function(){
         teamone_shoot_button.disabled = true;
         reset_button.disabled = true;
         simulate.disabled = true;
-        var seconds = document.querySelector("#countdown").innerText;
-        var countdown = setInterval(function() {
+        let seconds = document.querySelector("#countdown").innerText;
+        let countdown = setInterval(function() {
             seconds--;
             document.querySelector("#countdown").innerText = seconds;
             if (seconds <= 0) clearInterval(countdown);
@@ -298,18 +298,14 @@ document.onkeydown = function(event) {
           break;
        case 38:
         
-        document.getElementById("reset-button").click(); 
+        
+        document.getElementById("simulate").click(); 
           break;
        case 39:
         document.getElementById("teamtwo-shoot-button").click(); 
           break;
        case 40:
-        var teamoneName = prompt("What would you like to name Team 1?", "Team 1");
-        var teamtwoName = prompt("What would you like to name Team 2", "Team 2");
-        var overwriteTeamone = document.querySelector(".left h2");
-        overwriteTeamone.innerText = teamoneName;
-        var overwriteTeamtwo = document.querySelector(".right h2");
-        overwriteTeamtwo.innerText = teamtwoName;
+        document.getElementById("reset-button").click(); 
           break;
     }
 };
@@ -318,11 +314,22 @@ simulate.addEventListener("click", async function(){
       
     
       reset_button.disabled = true;
-      var simulateTeamoneName = prompt("What would you like to name Team 1?", "Team 1");
-      var simulateTeamtwoName = prompt("What would you like to name Team 2", "Team 2");
-      var simulateOverwriteTeamone = document.querySelector(".left h2");
+      teamone_numgoals.innerText = 0;
+            teamone_numshots.innerText = 0;
+            teamtwo_numshots.innerText = 0;
+            teamtwo_numgoals.innerText = 0;
+            shotlog.innerText = "";
+            winner.innerText = "";
+
+           
+
+      let simulateTeamoneName = "";    
+      let simulateTeamtwoName = ""; 
+      while (simulateTeamoneName = prompt("What would you like to name Team 1?", "Team 1"), simulateTeamoneName.length > 15) alert("15 Character Max"), {};
+      while (simulateTeamtwoName = prompt("What would you like to name Team 2", "Team 2"), simulateTeamtwoName.length > 15) alert("15 Character Max"), {};
+      let simulateOverwriteTeamone = document.querySelector(".left h2");
       simulateOverwriteTeamone.innerText = simulateTeamoneName;
-      var simulateOverwriteTeamtwo = document.querySelector(".right h2");
+      let simulateOverwriteTeamtwo = document.querySelector(".right h2");
       simulateOverwriteTeamtwo.innerText = simulateTeamtwoName;
       teamtwo_shoot_button.click();
       await sleep(2500);
