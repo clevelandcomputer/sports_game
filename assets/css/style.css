@@ -55,7 +55,7 @@ h1 {
     margin-top: 0px;
     margin-bottom: 0px;
     background-color: black;
-    color: yellow;
+    color: #fd813d;
     text-align: center;
     top: -648px;
 }
@@ -81,7 +81,7 @@ h1 {
     display: none;
     width: 200px;
     margin: 0 auto;
-    color: yellow;
+    color: #fd813d;
     background-color: black;
     text-align: center;
 }
